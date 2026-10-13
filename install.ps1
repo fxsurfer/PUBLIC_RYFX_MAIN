@@ -19,7 +19,7 @@ if (-not $DataFolder) { $DataFolder = Read-Host "MT4データフォルダのパ�
 if (-not (Test-Path (Join-Path $DataFolder "MQL4"))) { throw "MQL4 フォルダが見つかりません: $DataFolder" }
 
 Copy-Item (Join-Path $src "MQL4") $DataFolder -Recurse -Force
-$tpl = Join-Path $src "templates"
+$tpl = Join-Path $root "templates"
 if (Test-Path $tpl) { Copy-Item $tpl $DataFolder -Recurse -Force }
 "導入完了: $Set → $DataFolder"
 "MT4を再起動し、.ex4/.mq4 はナビゲーターのエキスパートアドバイザに表示されます。"
